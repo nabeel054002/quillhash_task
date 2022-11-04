@@ -6,7 +6,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const {ethers, providers} = require("ethers");
 import styles from '../styles/Home.module.css'
-let MAX_COUNT=5;
+//let MAX_COUNT=5;
 
 export default function Home() {
   const [file, setFile] = useState("");
@@ -90,7 +90,7 @@ export default function Home() {
       return (
       <div>
         <div className={styles.fir}>
-        <input id='fileUpload' type='file' multiple 
+        <input className = {styles.input}id='fileUpload' type='file' multiple 
           onChange={handleFileEvent}
           disabled={fileLimit}
         />
@@ -124,7 +124,7 @@ export default function Home() {
         <br/>
         <br/>
         <div>
-          <button className={styles.btn} onClick={()=>{
+          <button className={styles.button} onClick={()=>{
         setShow(true)
       }}>Click to Caclulate number of lines</button>
         </div>

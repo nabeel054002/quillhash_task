@@ -32,7 +32,8 @@
 }
 
 .main {
-  background-color: peachpuff;
+  background-color: white;
+  color: #0070f3;
   min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
@@ -42,6 +43,15 @@
   align-items: center;
 }
 
+.button {
+  color: #0070f3;
+  border: #eaeaea;
+  background-color: white;
+}
+.input{
+  background-color: white;
+  color: #0070f3;
+}
 .footer {
   display: flex;
   flex: 1;
