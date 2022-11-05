@@ -22,17 +22,12 @@ export default function Home() {
     const arr = [];
     let count=0;
     let files = e.target.files;
+    let lines_local=0;
     for(let i=0; i<files.length; i++){
       let reader = new FileReader();
       reader.readAsText(files[i]);
       reader.onload = (e)=>{
-        let file = e.target.result;
-        for(let j=0; j<file.length; j++){
-          if(file[j]=='\n'){
-            count+=1;
-          }
-        }
-        setLines(count);
+        SetUploadedFiles([...uploadedFiles, e.target.result]);
       }
     }
   }
@@ -74,14 +69,18 @@ export default function Home() {
   },[url])
   useEffect(()=>{
     let lines_local=0;
-    uploadedFiles.forEach((file)=>{
-      for(let i=0; i<file.length; i++){
-        if(file[i]=='\n'){
-          lines_local+=1;
-        }
+    for(let i=0; i<uploadedFiles.length; i++){
+      let file = uploadedFiles[i];
+      if(file.length>0){
+        for(let i=0; i<file.length; i++){
+          if(file[i]=='\n'){
+            lines_local+=1;
+          }
+        } 
+        lines_local+=1;
       }
-    })
-    setLines(lines_local);
+      setLines(lines_local);
+    }
       
   }, [uploadedFiles])
   useEffect(()=>{
