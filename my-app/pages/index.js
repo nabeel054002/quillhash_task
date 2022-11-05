@@ -84,7 +84,19 @@ export default function Home() {
     setLines(lines_local);
       
   }, [uploadedFiles])
-
+  useEffect(()=>{
+    let lines_local=0;
+    if(file.length>0){
+      for(let i=0; i<file.length; i++){
+        if(file[i]=='\n'){
+          lines_local+=1;
+        }
+      } 
+      lines_local+=1;
+    }
+    setLines(lines_local);
+      
+  }, [file])
   function render(){
     if(!show){
       return (

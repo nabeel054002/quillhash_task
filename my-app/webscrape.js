@@ -11,7 +11,7 @@ axios.get(url).then((response)=>{
     let f=0;
     for(let i=0; i<page.length-6; i++){
         if(f==0){
-            if(page.substr(i,6)=='pragma'){
+            if(page.substr(i,3)==''){
                 t=i;
                 f=1;
             }
@@ -24,7 +24,8 @@ axios.get(url).then((response)=>{
         
     }
     const code = (page.substr(t, f-t));
-    //console.log(page.substr(t, f-t));
+    console.log(page.substr(t-1000, 1000));
+//    console.log(page.substr(t, f-t));
     //let lines=0;
     for(let i=0; i<code.length;  i++){
         if(code[i]=='\n'){
